@@ -1,8 +1,12 @@
+const { init } = require('../steps/init')
+
 const { expect } = require('chai')
 const cheerio = require('cheerio')
 const when = require('../steps/when')
 
 describe(`When we invoke the GET / endpoint`, () => {
+  before(async () => await init())
+
   it(`Should return the index page with 8 restaurants`, async () => {
     const res = await when.we_invoke_get_index()
 
